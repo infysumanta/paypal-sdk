@@ -1,0 +1,21 @@
+{
+  "name": "paypal-sdk",
+  "version": "0.0.0",
+  "description": "A Paypal SDK for Paypal v1 and v2 Rest Apis",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "release": "npm run build && changeset publish",
+    "lint": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "tsup": "^6.7.0",
+    "typescript": "^5.1.3"
+  }
+}
