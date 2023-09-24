@@ -1,0 +1,9 @@
+.changeset
+.github
+.vscode
+config
+src
+test
+tools
+*.txt
+index.ts
