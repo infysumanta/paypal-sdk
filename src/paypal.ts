@@ -1,4 +1,5 @@
 import { Environment } from './constant';
+import { generateAccessToken } from './resource/Authorization';
 import { getAuthenticationToken, getRequestUrl } from './utils';
 
 export class Paypal {
@@ -6,7 +7,21 @@ export class Paypal {
   clientSecret: string;
   environment: Environment;
   requestUrl: string;
-  accessToken: string | undefined;
+
+
+  authorization: {};
+  orders: {};
+  payments: {};
+  invoices: {};
+  subscriptions: {};
+  payouts: {};
+  webhooks: {};
+  shipmentTracking: {};
+  transactionSearch: {};
+  disputes: {};
+  paymentMethodsTokens: {};
+
+
 
   constructor(
     clientId: string,
@@ -17,14 +32,24 @@ export class Paypal {
     this.clientSecret = clientSecret;
     this.environment = environment;
     this.requestUrl = getRequestUrl(environment);
+
+
+    // method binding
+    this.authorization=this._authorization;
+    this.orders={};
+    this.payments={};
+    this.invoices={};
+    this.subscriptions={};
+    this.payouts={};
+    this.webhooks={};
+    this.shipmentTracking={};
+    this.transactionSearch={};
+    this.disputes={};
+    this.paymentMethodsTokens={};
   }
 
-  public async init() {
-    const token = await getAuthenticationToken(
-      this.requestUrl,
-      this.clientId,
-      this.clientSecret,
-    );
-    return token;
+
+  private _authorization = {
+    generateAccessToken: async() => await generateAccessToken(this.clientId, this.clientSecret, this.environment, this.requestUrl),
   }
 }
