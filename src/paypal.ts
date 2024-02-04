@@ -16,6 +16,9 @@ export class Paypal {
   orders: {};
   payments: {};
   invoices: {};
+  template: {};
+  products: {};
+  plans: {};
   subscriptions: {};
   payouts: {};
   webhooks: {};
@@ -35,6 +38,9 @@ export class Paypal {
     this.orders = {};
     this.payments = {};
     this.invoices = {};
+    this.template = {};
+    this.products = {};
+    this.plans = {};
     this.subscriptions = {};
     this.payouts = {};
     this.webhooks = {};
