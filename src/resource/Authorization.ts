@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { post } from "../utils";
 
 export async function generateAccessToken(
   clientId: string,
@@ -35,23 +36,31 @@ export async function generateAccessToken(
   return response.data;
 }
 
-export async function getToken(
-  clientId: string,
-  clientSecret: string,
-  requestUrl: string
-): Promise<string> {
+export async function getToken(clientId: string, clientSecret: string, requestUrl: string): Promise<string> {
   const token = await generateAccessToken(clientId, clientSecret, requestUrl);
   return token.access_token;
 }
 
-export async function terminateAccessToken() {
-  console.log("terminateAccessToken");
+export async function terminateAccessToken(token: string, requestUrl: string): Promise<void> {
+  await post({
+    url: `${requestUrl}/v1/oauth2/token/terminate`,
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: "Bearer " + token,
+    },
+    data: {
+      token: token,
+      token_type_hint: "ACCESS_TOKEN",
+    },
+  });
 }
 
+// @todo: imeplement the following methods userInfo
 export async function userInfo() {
   console.log("userInfo");
 }
 
+// @todo: imeplement the following methods generateClientToken
 export async function generateClientToken() {
   console.log("generateClientToken");
 }
