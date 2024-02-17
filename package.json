@@ -3,7 +3,6 @@
   "version": "0.0.2",
   "description": "A Paypal SDK for Paypal v1 and v2 Rest Apis",
   "exports": "./dist/index.js",
-  "type": "module",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
