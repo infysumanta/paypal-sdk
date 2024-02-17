@@ -13,7 +13,9 @@
     "clean": "rimraf dist && rimraf components",
     "version": "changeset version",
     "package": "npm run build && npm pack",
-    "publish": "npm run build && changeset publish"
+    "publish": "npm run build && changeset publish",
+    "test": "jest --no-cache --runInBand",
+    "test:cov": "jest --coverage --no-cache --runInBand"
   },
   "keywords": [],
   "author": "",
