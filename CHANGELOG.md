@@ -1,5 +1,11 @@
 # paypal-sdk
 
+## 0.0.3
+
+### Patch Changes
+
+- 74ee520: change build process and working on other apis
+
 ## 0.0.2
 
 ### Patch Changes
