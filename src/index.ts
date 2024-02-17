@@ -1,3 +1,3 @@
-import { Paypal } from './paypal';
+import { Paypal } from './paypal'
 
-export default Paypal;
+export default Paypal
